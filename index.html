@@ -263,19 +263,20 @@
             display: block;
         }
 
-        /* Flip Card Styles */
+        
         .flip-card {
-            background: transparent;
+            background-color: transparent;
             perspective: 1000px;
+            width: 100%;
+            height: 250px;
         }
 
         .flip-card-inner {
             position: relative;
             width: 100%;
-            height: 230px;
-            text-align: center;
-            transition: transform 0.8s;
+            height: 100%;
             transform-style: preserve-3d;
+            transition: transform 0.8s ease;
         }
 
         .flip-card:hover .flip-card-inner {
@@ -288,14 +289,12 @@
             width: 100%;
             height: 100%;
             backface-visibility: hidden;
-            border: 1px solid cyan;
             border-radius: 15px;
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
             padding: 20px;
-            transition: box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .flip-card-front {
@@ -653,7 +652,7 @@
                 <h1 id="animated-text">Hello, I'm <span style="color: cyan;">Vignesh</span></h1>
                 <p class="typing-text" id="typing"></p>
                 <!-- Download Resume Button -->
-                <a href="images/vignesh.pdf" download class="glow-button mt-3 resume-btn" data-aos="zoom-in"
+                <a href="images/VIGNESH_P.pdf" download class="glow-button mt-3 resume-btn" data-aos="zoom-in"
                     data-aos-delay="300">
                     <i class="fa-solid fa-download"></i> Download Resume
                 </a>
