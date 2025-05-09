@@ -263,7 +263,25 @@
             display: block;
         }
 
-        
+        .skill-card {
+            position: absolute;
+            opacity: 0;
+            transform: scale(0.9);
+            pointer-events: none;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .skill-card.visible {
+            opacity: 1;
+            transform: scale(1);
+            pointer-events: auto;
+            position: relative;
+        }
+
+
+
         .flip-card {
             background-color: transparent;
             perspective: 1000px;
@@ -699,161 +717,162 @@
                     data-aos-delay="200">Tools</span>
                 <span class="badge bg-dark text-light filter-btn ms-2" onclick="filterSkills('all')">All</span>
             </div>
-
-            <div class="row gy-4">
-                <!-- Example Skill Card -->
-                <div class="col-md-4 skill-card" data-category="frontend" data-aos="flip-left" data-aos-delay="100">
-                    <div class="flip-card" onmouseover="animateCircular('html5', 85)"
-                        onmouseout="resetCircular('html5')">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <i class="fab fa-html5 skill-icon" style="color:#ff5722;"></i>
-                                <h4>HTML5</h4>
-                            </div>
-                            <div class="flip-card-back">
-                                <p>Semantic markup, accessibility best practices, and SEO-optimized structure.</p>
-                                <div class="circular-container" data-skill="html5">
-                                    <div class="circular">
-                                        <svg class="circle" viewBox="0 0 36 36">
-                                            <path class="bg"
-                                                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                            <path class="progress" stroke-dasharray="0, 100"
-                                                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                        </svg>
-                                        <div class="percentage">85%</div>
+            <div class="skills-grid-wrapper position-relative">
+                <div class="row gy-4">
+                    <!-- Example Skill Card -->
+                    <div class="col-md-4 skill-card" data-category="frontend" data-aos="flip-left" data-aos-delay="100">
+                        <div class="flip-card" onmouseover="animateCircular('html5', 85)"
+                            onmouseout="resetCircular('html5')">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <i class="fab fa-html5 skill-icon" style="color:#ff5722;"></i>
+                                    <h4>HTML5</h4>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p>Semantic markup, accessibility best practices, and SEO-optimized structure.</p>
+                                    <div class="circular-container" data-skill="html5">
+                                        <div class="circular">
+                                            <svg class="circle" viewBox="0 0 36 36">
+                                                <path class="bg"
+                                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                                <path class="progress" stroke-dasharray="0, 100"
+                                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                            </svg>
+                                            <div class="percentage">85%</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 skill-card" data-category="frontend" data-aos="flip-left" data-aos-delay="200">
-                    <div class="flip-card" onmouseover="animateCircular('css3', 80)" onmouseout="resetCircular('css3')">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <i class="fab fa-css3-alt skill-icon" style="color:#2965f1;"></i>
-                                <h4>CSS3</h4>
-                            </div>
-                            <div class="flip-card-back">
-                                <p>Responsive design, flexbox, and CSS animations.</p>
-                                <div class="circular-container" data-skill="css3">
-                                    <div class="circular">
-                                        <svg class="circle" viewBox="0 0 36 36">
-                                            <path class="bg"
-                                                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                            <path class="progress" stroke-dasharray="0, 100"
-                                                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                        </svg>
-                                        <div class="percentage">80%</div>
+                    <div class="col-md-4 skill-card" data-category="frontend" data-aos="flip-left" data-aos-delay="200">
+                        <div class="flip-card" onmouseover="animateCircular('css3', 80)"
+                            onmouseout="resetCircular('css3')">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <i class="fab fa-css3-alt skill-icon" style="color:#2965f1;"></i>
+                                    <h4>CSS3</h4>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p>Responsive design, flexbox, and CSS animations.</p>
+                                    <div class="circular-container" data-skill="css3">
+                                        <div class="circular">
+                                            <svg class="circle" viewBox="0 0 36 36">
+                                                <path class="bg"
+                                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                                <path class="progress" stroke-dasharray="0, 100"
+                                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                            </svg>
+                                            <div class="percentage">80%</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 skill-card" data-category="frontend" data-aos="flip-left" data-aos-delay="300">
-                    <div class="flip-card" onmouseover="animateCircular('javascript', 75)"
-                        onmouseout="resetCircular('javascript')">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <i class="fab fa-js skill-icon" style="color:#f7df1e;"></i>
-                                <h4>JavaScript</h4>
-                            </div>
-                            <div class="flip-card-back">
-                                <p>DOM manipulation, ES6 features, and asynchronous programming.</p>
-                                <div class="circular-container" data-skill="javascript">
-                                    <div class="circular">
-                                        <svg class="circle" viewBox="0 0 36 36">
-                                            <path class="bg"
-                                                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                            <path class="progress" stroke-dasharray="0, 100"
-                                                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                        </svg>
-                                        <div class="percentage">75%</div>
+                    <div class="col-md-4 skill-card" data-category="frontend" data-aos="flip-left" data-aos-delay="300">
+                        <div class="flip-card" onmouseover="animateCircular('javascript', 75)"
+                            onmouseout="resetCircular('javascript')">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <i class="fab fa-js skill-icon" style="color:#f7df1e;"></i>
+                                    <h4>JavaScript</h4>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p>DOM manipulation, ES6 features, and asynchronous programming.</p>
+                                    <div class="circular-container" data-skill="javascript">
+                                        <div class="circular">
+                                            <svg class="circle" viewBox="0 0 36 36">
+                                                <path class="bg"
+                                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                                <path class="progress" stroke-dasharray="0, 100"
+                                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                            </svg>
+                                            <div class="percentage">75%</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 skill-card" data-category="backend" data-aos="flip-left" data-aos-delay="400">
-                    <div class="flip-card" onmouseover="animateCircular('django', 70)"
-                        onmouseout="resetCircular('django')">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <i class="fab fa-python skill-icon" style="color:#3776ab;"></i>
-                                <h4>Django</h4>
-                            </div>
-                            <div class="flip-card-back">
-                                <p>Building RESTful APIs and MVC architecture.</p>
-                                <div class="circular-container" data-skill="django">
-                                    <div class="circular">
-                                        <svg class="circle" viewBox="0 0 36 36">
-                                            <path class="bg"
-                                                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                            <path class="progress" stroke-dasharray="0, 100"
-                                                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                        </svg>
-                                        <div class="percentage">70%</div>
+                    <div class="col-md-4 skill-card" data-category="backend" data-aos="flip-left" data-aos-delay="400">
+                        <div class="flip-card" onmouseover="animateCircular('django', 70)"
+                            onmouseout="resetCircular('django')">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <i class="fab fa-python skill-icon" style="color:#3776ab;"></i>
+                                    <h4>Django</h4>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p>Building RESTful APIs and MVC architecture.</p>
+                                    <div class="circular-container" data-skill="django">
+                                        <div class="circular">
+                                            <svg class="circle" viewBox="0 0 36 36">
+                                                <path class="bg"
+                                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                                <path class="progress" stroke-dasharray="0, 100"
+                                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                            </svg>
+                                            <div class="percentage">70%</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 skill-card" data-category="tools" data-aos="flip-left" data-aos-delay="500">
-                    <div class="flip-card" onmouseover="animateCircular('bootstrap', 85)"
-                        onmouseout="resetCircular('bootstrap')">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <i class="fab fa-bootstrap skill-icon" style="color:#563d7c;"></i>
-                                <h4>Bootstrap</h4>
-                            </div>
-                            <div class="flip-card-back">
-                                <p>Responsive design and grid system.</p>
-                                <div class="circular-container" data-skill="bootstrap">
-                                    <div class="circular">
-                                        <svg class="circle" viewBox="0 0 36 36">
-                                            <path class="bg"
-                                                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                            <path class="progress" stroke-dasharray="0, 100"
-                                                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                        </svg>
-                                        <div class="percentage">85%</div>
+                    <div class="col-md-4 skill-card" data-category="tools" data-aos="flip-left" data-aos-delay="500">
+                        <div class="flip-card" onmouseover="animateCircular('bootstrap', 85)"
+                            onmouseout="resetCircular('bootstrap')">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <i class="fab fa-bootstrap skill-icon" style="color:#563d7c;"></i>
+                                    <h4>Bootstrap</h4>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p>Responsive design and grid system.</p>
+                                    <div class="circular-container" data-skill="bootstrap">
+                                        <div class="circular">
+                                            <svg class="circle" viewBox="0 0 36 36">
+                                                <path class="bg"
+                                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                                <path class="progress" stroke-dasharray="0, 100"
+                                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                            </svg>
+                                            <div class="percentage">85%</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 skill-card" data-category="tools" data-aos="flip-left" data-aos-delay="600">
-                    <div class="flip-card" onmouseover="animateCircular('github', 90)"
-                        onmouseout="resetCircular('github')">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <i class="fab fa-github skill-icon" style="color:#dbcfcf;"></i>
-                                <h4>GitHub</h4>
-                            </div>
-                            <div class="flip-card-back">
-                                <p>Version control and collaboration.</p>
-                                <div class="circular-container" data-skill="github">
-                                    <div class="circular">
-                                        <svg class="circle" viewBox="0 0 36 36">
-                                            <path class="bg"
-                                                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                            <path class="progress" stroke-dasharray="0, 100"
-                                                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                        </svg>
-                                        <div class="percentage">90%</div>
+                    <div class="col-md-4 skill-card" data-category="tools" data-aos="flip-left" data-aos-delay="600">
+                        <div class="flip-card" onmouseover="animateCircular('github', 90)"
+                            onmouseout="resetCircular('github')">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <i class="fab fa-github skill-icon" style="color:#dbcfcf;"></i>
+                                    <h4>GitHub</h4>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p>Version control and collaboration.</p>
+                                    <div class="circular-container" data-skill="github">
+                                        <div class="circular">
+                                            <svg class="circle" viewBox="0 0 36 36">
+                                                <path class="bg"
+                                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                                <path class="progress" stroke-dasharray="0, 100"
+                                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                            </svg>
+                                            <div class="percentage">90%</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- Repeat similar cards for CSS3, JavaScript, Django, Bootstrap, GitHub -->
                 </div>
-                <!-- Repeat similar cards for CSS3, JavaScript, Django, Bootstrap, GitHub -->
             </div>
-
 
         </div>
     </section>
@@ -1114,33 +1133,30 @@
 
         // === Filter Skills Animation ===
         function filterSkills(category) {
-            // Remove 'active' class from all buttons
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
 
-            // Add 'active' to the currently clicked button
             const activeBtn = Array.from(document.querySelectorAll('.filter-btn'))
                 .find(btn => btn.textContent.toLowerCase().includes(category));
             if (activeBtn) activeBtn.classList.add('active');
 
-            // Filter only skill cards, do NOT affect project cards
             const skillCards = document.querySelectorAll('.skill-card');
 
             skillCards.forEach(card => {
                 const cardCategory = card.getAttribute('data-category');
 
                 if (category === 'all' || cardCategory === category) {
-                    card.style.display = 'block';
-                    gsap.fromTo(card, { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.5 });
+                    card.classList.remove('hidden');
+                    card.classList.add('visible');
                 } else {
-                    gsap.to(card, {
-                        opacity: 0,
-                        scale: 0.9,
-                        duration: 0.3,
-                        onComplete: () => card.style.display = 'none'
-                    });
+                    card.classList.remove('visible');
+                    card.classList.add('hidden');
                 }
             });
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            filterSkills('all');
+        });
 
     </script>
 
