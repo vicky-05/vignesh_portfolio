@@ -4,7 +4,7 @@ This is my personal portfolio website built to showcase my skills, projects, and
 
 ## 🌐 Live Demo
 
-[🔗 View Portfolio]((https://vicky-05.github.io/vignesh_portfolio/))
+[🔗 View Portfolio]([https://vicky-05.github.io/vignesh_portfolio/])
 
 ## 🧠 Features
 
